@@ -101,22 +101,6 @@ if __name__ == '__main__':
                 print('Epoch: ', epoch, '| AUC: %.2f' % auc,
                       '| validation loss: %.4f' % validation_loss.item(),
                       '| validation accuracy: %.2f' % accuracy)
-                if auc > best_auc:
-                    best_auc = auc
-                    torch.save(cnn, 'new_net/cnn_auc.pth')
-                    f = open('new_net/num_auc.txt', 'w')
-                    f.write('Epoch: ' + str(epoch) + '| AUC: %.2f' % auc +
-                            '| validation loss: %.4f' % validation_loss.item() +
-                            '| validation accuracy: %.2f' % accuracy)
-                    f.close()
-                if accuracy > best_acc:
-                    best_acc = accuracy
-                    torch.save(cnn, 'new_net/cnn_acc.pth')
-                    f = open('new_net/num_acc.txt', 'w')
-                    f.write('Epoch: ' + str(epoch) + '| AUC: %.2f' % auc +
-                            '| validation loss: %.4f' % validation_loss.item() +
-                            '| validation accuracy: %.2f' % accuracy)
-                    f.close()
                 cnn.train()
 
         # 测验
